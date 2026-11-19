@@ -1,0 +1,295 @@
+:root {
+      --wood-light: #e5a967;
+      --wood-mid: #c6823e;
+      --wood-dark: #8c4f1d;
+      --wood-border: #532b0d;
+    }
+
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Nunito', sans-serif;
+      background-color: #38bdf8;
+    }
+
+    .font-cartoon {
+      font-family: 'Fredoka', cursive, sans-serif;
+    }
+
+    /* Efek Outline Teks Kartun */
+    .text-stroke-brown {
+      -webkit-text-stroke: 2px #4a2508;
+      paint-order: stroke fill;
+      text-shadow: 0 3px 0 #4a2508;
+    }
+
+    .text-stroke-lg {
+      -webkit-text-stroke: 4px #4a2508;
+      paint-order: stroke fill;
+      text-shadow: 0 5px 0 #381a04;
+    }
+
+    .text-stroke-sm {
+      -webkit-text-stroke: 1.5px #2d1606;
+      paint-order: stroke fill;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    /* Papan Kayu Kartun */
+    .wood-board {
+      background: linear-gradient(180deg, #e7ad6b 0%, #cf8943 50%, #b8712d 100%);
+      border: 4px solid #572d0e;
+      box-shadow:
+        inset 0 4px 0 rgba(255, 232, 194, 0.65),
+        inset 0 -5px 0 rgba(114, 58, 17, 0.55),
+        0 10px 20px rgba(0, 0, 0, 0.28);
+      position: relative;
+    }
+
+    .wood-plank-inner {
+      background: #fdf2dc;
+      border: 3px solid #965722;
+      box-shadow: inset 0 3px 6px rgba(130, 74, 24, 0.18);
+    }
+
+    /* Tombol Glossy Pill Kartun */
+    .btn-glossy {
+      position: relative;
+      border-radius: 9999px;
+      border: 3.5px solid #3c1e08;
+      transition: transform 0.14s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.14s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .btn-glossy::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 12px;
+      right: 12px;
+      height: 36%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.68) 0%, rgba(255,255,255,0.12) 100%);
+      border-radius: 9999px;
+      pointer-events: none;
+    }
+
+    .btn-glossy:hover:not(:disabled) {
+      transform: translateY(-3px) scale(1.03);
+      filter: brightness(1.05);
+    }
+
+    .btn-glossy:active:not(:disabled) {
+      transform: translateY(3px) scale(0.97);
+    }
+
+    .btn-glossy:disabled {
+      filter: grayscale(0.75) brightness(0.85);
+      cursor: not-allowed;
+    }
+
+    .btn-yellow {
+      background: linear-gradient(180deg, #ffdf38 0%, #ffb703 55%, #f48c06 100%);
+      box-shadow: 0 6px 0 #8a4300, 0 10px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-blue {
+      background: linear-gradient(180deg, #4cc9f0 0%, #0096c7 55%, #006494 100%);
+      box-shadow: 0 6px 0 #023e66, 0 10px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-purple {
+      background: linear-gradient(180deg, #c77dff 0%, #9d4edd 55%, #691e9c 100%);
+      box-shadow: 0 6px 0 #3c096c, 0 10px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-green {
+      background: linear-gradient(180deg, #52b788 0%, #2d6a4f 100%);
+      box-shadow: 0 5px 0 #1b4332, 0 8px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-wood {
+      background: linear-gradient(180deg, #b87333 0%, #8b4d19 100%);
+      box-shadow: 0 5px 0 #4a2307, 0 8px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Animasi Karakter & Elemen */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+
+    @keyframes mascotIdle {
+      0%, 100% { transform: scaleY(1) translateY(0); }
+      50% { transform: scaleY(1.025) translateY(-4px); }
+    }
+
+    @keyframes mascotCelebrate {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-16px) rotate(-4deg); }
+      75% { transform: translateY(-16px) rotate(4deg); }
+    }
+
+    @keyframes binShake {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      20% { transform: translateX(-8px) rotate(-4deg); }
+      40% { transform: translateX(8px) rotate(4deg); }
+      60% { transform: translateX(-6px) rotate(-3deg); }
+      80% { transform: translateX(6px) rotate(3deg); }
+    }
+
+    @keyframes binBounce {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.16, 0.88); }
+      70% { transform: scale(0.94, 1.08); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes scorePopup {
+      0% { opacity: 0; transform: translate(-50%, 10px) scale(0.5); }
+      20% { opacity: 1; transform: translate(-50%, -15px) scale(1.2); }
+      80% { opacity: 1; transform: translate(-50%, -45px) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -65px) scale(0.9); }
+    }
+
+    @keyframes cloudDrift {
+      0% { transform: translateX(-15vw); }
+      100% { transform: translateX(115vw); }
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(105vh) rotate(720deg); opacity: 0.85; }
+    }
+
+    .animate-float {
+      animation: floatSlow 3.2s ease-in-out infinite;
+    }
+
+    .mascot-idle {
+      animation: mascotIdle 2.8s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    .mascot-jump {
+      animation: mascotCelebrate 0.6s ease-in-out 2;
+      transform-origin: bottom center;
+    }
+
+    .bin-shake {
+      animation: binShake 0.45s ease-in-out;
+    }
+
+    .bin-bounce {
+      animation: binBounce 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .bin-drag-over {
+      transform: scale(1.1) translateY(-6px);
+      filter: drop-shadow(0 0 16px rgba(255, 255, 160, 0.95));
+    }
+
+    .score-float {
+      position: fixed;
+      pointer-events: none;
+      z-index: 100;
+      animation: scorePopup 0.95s ease-out forwards;
+    }
+
+    /* Item Sampah di Tray */
+    .trash-item {
+      touch-action: none;
+      cursor: grab;
+      transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.16s ease;
+    }
+
+    .trash-item:hover {
+      transform: scale(1.14) translateY(-4px);
+      filter: drop-shadow(0 6px 8px rgba(0,0,0,0.3));
+      z-index: 20;
+    }
+
+    .trash-item.selected {
+      transform: scale(1.2) translateY(-8px);
+      filter: drop-shadow(0 0 12px #fde047);
+      z-index: 25;
+    }
+
+    .trash-item.dragging {
+      cursor: grabbing;
+      opacity: 0.92;
+      z-index: 999 !important;
+      pointer-events: none;
+      transition: none;
+    }
+
+    /* Toggle Switch Pengaturan */
+    .toggle-track {
+      width: 78px;
+      height: 40px;
+      border-radius: 9999px;
+      border: 3px solid #3c1e08;
+      background: #9ca3af;
+      position: relative;
+      transition: background 0.25s ease;
+      cursor: pointer;
+    }
+
+    .toggle-track.active {
+      background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%);
+    }
+
+    .toggle-thumb {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2.5px solid #3c1e08;
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+    }
+
+    .toggle-track.active .toggle-thumb {
+      transform: translateX(36px);
+    }
+
+    /* Tema Background per Level */
+    .bg-theme-school {
+      background: linear-gradient(180deg, #38bdf8 0%, #bae6fd 58%, #65a30d 58%, #84cc16 78%, #4d7c0f 100%);
+    }
+    .bg-theme-park {
+      background: linear-gradient(180deg, #22d3ee 0%, #a5f3fc 58%, #22c55e 58%, #4ade80 78%, #15803d 100%);
+    }
+    .bg-theme-home {
+      background: linear-gradient(180deg, #60a5fa 0%, #dbeafe 58%, #84cc16 58%, #a3e635 78%, #3f6212 100%);
+    }
+    .bg-theme-beach {
+      background: linear-gradient(180deg, #0ea5e9 0%, #7dd3fc 46%, #0284c7 46%, #38bdf8 58%, #fde047 58%, #facc15 100%);
+    }
+    .bg-theme-city {
+      background: linear-gradient(180deg, #818cf8 0%, #c7d2fe 56%, #94a3b8 56%, #64748b 72%, #65a30d 72%, #4d7c0f 100%);
+    }
+
+    .confetti-piece {
+      position: fixed;
+      width: 12px;
+      height: 18px;
+      top: -20px;
+      z-index: 60;
+      pointer-events: none;
+      border-radius: 3px;
+      animation: confettiFall linear forwards;
+    }
